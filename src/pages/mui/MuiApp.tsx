@@ -7,6 +7,17 @@ import { LinearProgress } from "@mui/material";
 import { mockAuthClient } from "@/pages/authClients/mockAuthClient";
 import { firebaseClient } from "@/pages/authClients/firebaseClient";
 
+console.log(import.meta.env.BASE_URL);
+console.log(getBasename(import.meta.env.BASE_URL));
+
+function getBasename(baseUrl: string | undefined) {
+  if (baseUrl) {
+    return "/" + baseUrl.match(/([^\/]*)\/*$/)?.[1];
+  }
+
+  return undefined;
+}
+
 export function MuiApp() {
   return (
     <>
@@ -17,7 +28,7 @@ export function MuiApp() {
           <LinearProgress style={{ position: "fixed", left: 0, top: 0 }} />
         )}
       >
-        <BrowserRouter>
+        <BrowserRouter basename={getBasename(import.meta.env.BASE_URL)}>
           <MuiRouting />
         </BrowserRouter>
       </AuthProvider>

@@ -19,5 +19,13 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
     },
+    build: {
+      rollupOptions: {
+        input: {
+          main: path.resolve(__dirname, "index.html"),
+          404: path.resolve(__dirname, "404.html"),
+        },
+      },
+    },
   };
 });

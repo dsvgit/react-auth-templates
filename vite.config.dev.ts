@@ -9,6 +9,10 @@ import packageJson from "./package.json";
 export default defineConfig(({ mode }) => {
   const mainApp = process.env.MAIN_APP;
 
+  if (!mainApp) {
+    throw new Error("MAIN_APP should be specified");
+  }
+
   fs.copyFileSync(`${mainApp}.html`, "index.html");
 
   return {

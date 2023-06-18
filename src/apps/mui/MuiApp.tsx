@@ -4,7 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { AuthProvider } from "@/auth-base/provider/AuthProvider";
 import { MuiRouting } from "@/apps/mui/MuiRouting";
 import { LinearProgress } from "@mui/material";
-import { mockAuthClient } from "@/pages/authClients/mockAuthClient";
+import { mockAuthClient } from "@/common/authClients/mockAuthClient";
 import { getBasename } from "@/apps/_utils/getBasename";
 
 export function MuiApp() {

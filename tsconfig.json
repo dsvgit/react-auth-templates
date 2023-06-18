@@ -19,7 +19,9 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "typeRoots": ["./src/pages/types"]
+    "typeRoots": [
+      "./src/common/types"
+    ]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -1,4 +1,4 @@
-import { auth } from "@/pages/firebase/config";
+import { auth } from "@/common/firebase/config";
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,

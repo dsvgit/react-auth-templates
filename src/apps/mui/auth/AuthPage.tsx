@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Alert from "@mui/material/Alert";
 import LoadingButton from "@mui/lab/LoadingButton";
-import * as validation from "@/pages/validation";
+import * as validation from "@/common/validation";
 
 type AuthForm = { email: string; password: string };
 

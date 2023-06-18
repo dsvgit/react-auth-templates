@@ -1,7 +1,7 @@
 import { User } from "firebase/auth";
 import { UserBase, AuthClientBase } from "@/auth-base";
-import { mockAuthClient } from "@/pages/authClients/mockAuthClient";
-import { firebaseClient } from "@/pages/authClients/firebaseClient";
+import { mockAuthClient } from "@/common/authClients/mockAuthClient";
+import { firebaseClient } from "@/common/authClients/firebaseClient";
 
 declare module "@/auth-base/types" {
   interface CustomTypes {

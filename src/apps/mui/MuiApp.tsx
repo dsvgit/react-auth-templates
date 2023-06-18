@@ -2,21 +2,10 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import { AuthProvider } from "@/auth-base/provider/AuthProvider";
-import { MuiRouting } from "@/pages/mui/MuiRouting";
+import { MuiRouting } from "@/apps/mui/MuiRouting";
 import { LinearProgress } from "@mui/material";
 import { mockAuthClient } from "@/pages/authClients/mockAuthClient";
-import { firebaseClient } from "@/pages/authClients/firebaseClient";
-
-console.log(import.meta.env.BASE_URL);
-console.log(getBasename(import.meta.env.BASE_URL));
-
-function getBasename(baseUrl: string | undefined) {
-  if (baseUrl) {
-    return "/" + baseUrl.match(/([^\/]*)\/*$/)?.[1];
-  }
-
-  return undefined;
-}
+import { getBasename } from "@/apps/_utils/getBasename";
 
 export function MuiApp() {
   return (
@@ -28,7 +17,7 @@ export function MuiApp() {
           <LinearProgress style={{ position: "fixed", left: 0, top: 0 }} />
         )}
       >
-        <BrowserRouter basename={getBasename(import.meta.env.BASE_URL)}>
+        <BrowserRouter basename={getBasename(import.meta.env.BASE_URL, "mui")}>
           <MuiRouting />
         </BrowserRouter>
       </AuthProvider>

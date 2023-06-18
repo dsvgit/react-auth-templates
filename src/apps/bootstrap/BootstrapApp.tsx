@@ -1,16 +1,9 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "@/auth-base/provider/AuthProvider";
-import { BootstrapRouting } from "@/pages/bootstrap/BootstrapRouting";
+import { BootstrapRouting } from "@/apps/bootstrap/BootstrapRouting";
 import { mockAuthClient } from "@/pages/authClients/mockAuthClient";
-
-function getBasename(baseUrl: string | undefined) {
-  if (baseUrl) {
-    return "/" + baseUrl.match(/([^\/]*)\/*$/)?.[1];
-  }
-
-  return undefined;
-}
+import { getBasename } from "@/apps/_utils/getBasename";
 
 export function BootstrapApp() {
   return (
@@ -18,7 +11,9 @@ export function BootstrapApp() {
       authClient={mockAuthClient}
       renderLoader={() => <div>loading...</div>}
     >
-      <BrowserRouter basename={getBasename(import.meta.env.BASE_URL)}>
+      <BrowserRouter
+        basename={getBasename(import.meta.env.BASE_URL, "bootstrap")}
+      >
         <BootstrapRouting />
       </BrowserRouter>
     </AuthProvider>

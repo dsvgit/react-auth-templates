@@ -2,8 +2,8 @@ import React from "react";
 import { NavLink, Outlet, Route, Routes, useNavigate } from "react-router-dom";
 import { RequireAuth } from "@/auth-base/guards/RequireAuth";
 import { RequireNoAuth } from "@/auth-base/guards/RequireNoAuth";
-import { SignupPage } from "@/pages/bootstrap/auth/SignupPage";
-import { LoginPage } from "@/pages/bootstrap/auth/LoginPage";
+import { SignupPage } from "@/apps/bootstrap/auth/SignupPage";
+import { LoginPage } from "@/apps/bootstrap/auth/LoginPage";
 import { useAuth } from "@/auth-base/provider/AuthContext";
 import { useAuthStatic } from "@/auth-base/provider/AuthStaticContext";
 
@@ -52,7 +52,7 @@ function Layout() {
         <div>
           <h3 className="float-md-start mb-0">
             <NavLink className="nav-link" to="/">
-              Test Supabase
+              Bootstrap demo
             </NavLink>
           </h3>
           {!user && (

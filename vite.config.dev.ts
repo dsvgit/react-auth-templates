@@ -1,4 +1,5 @@
 import * as path from "path";
+import fs from "fs";
 import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
 import react from "@vitejs/plugin-react";
@@ -6,8 +7,11 @@ import packageJson from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
+  const mainApp = process.env.MAIN_APP;
+
+  fs.copyFileSync(`${mainApp}.html`, "index.html");
+
   return {
-    base: mode === "development" ? undefined : packageJson.homepage,
     plugins: [
       react({
         babel: {
@@ -22,7 +26,7 @@ export default defineConfig(({ mode }) => {
     build: {
       rollupOptions: {
         input: {
-          main: path.resolve(__dirname, "index.html"),
+          main: path.resolve(__dirname, `index.html`),
           404: path.resolve(__dirname, "404.html"),
         },
       },

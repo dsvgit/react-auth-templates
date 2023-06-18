@@ -6,7 +6,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "dev:main": "MAIN_APP=main pnpm dev --config vite.config.dev.ts",
+    "dev:mui": "MAIN_APP=mui pnpm dev --config vite.config.dev.ts",
+    "dev:bootstrap": "MAIN_APP=bootstrap pnpm dev --config vite.config.dev.ts",
+    "build": "tsc && vite build --config vite.config.build.ts",
+    "build:local": "tsc && LOCAL_BUILD=true vite build --config vite.config.build.ts",
+    "serve": "serve dist",
     "preview": "vite preview",
     "deploy-pages": "gh-pages -d dist"
   },
@@ -33,6 +38,7 @@
     "@vitejs/plugin-react": "^3.0.0",
     "gh-pages": "^5.0.0",
     "prettier": "^2.8.8",
+    "serve": "^14.2.0",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"
   }

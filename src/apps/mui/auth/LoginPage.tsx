@@ -1,8 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { AuthPage } from "@/pages/bootstrap/auth/AuthPage";
+import { AuthPage } from "@/apps/mui/auth/AuthPage";
 import { useAuthStatic } from "@/auth-base/provider/AuthStaticContext";
 
-export function SignupPage() {
+export function LoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const { authClient } = useAuthStatic();
@@ -11,15 +11,9 @@ export function SignupPage() {
 
   return (
     <AuthPage
-      text="Sign up"
+      title="Sign in"
       onSubmit={async (form) => {
-        const { data, error } = await authClient.signUp({
-          email: form.email,
-          password: form.password,
-        });
-        console.log(data);
-
-        authClient.signInWithPassword({
+        await authClient.signInWithPassword({
           email: form.email,
           password: form.password,
         });
